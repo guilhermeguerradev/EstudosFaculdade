@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💰 Caixa Mestre Pro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>💰 Caixa Mestre Pro</h1>
+    </header>
+
+    <main class="main-layout">
+        <section id="form-section" class="card">
+            <h2>1. Registrar Transação</h2>
+            <form id="transaction-form">
+
+                <div class="form-group">
+                    <label for="tipo">Tipo de Movimento:</label>
+                    <select id="tipo" name="tipo" required>
+                        <option value="Receita">➕ Receita</option>
+                        <option value="Despesa">➖ Despesa</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="valor">Valor (R$):</label>
+                    <input type="number" id="valor" name="valor" step="0.01" min="0.01" value="100.00" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="data">Data:</label>
+                    <input type="date" id="data" name="data" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="categoria">Categoria:</label>
+                    <select id="categoria" name="categoria" required>
+                        <option value="Vendas">Vendas</option>
+                        <option value="Gorjetas">Gorjetas</option>
+                        <option value="Fornecedores">Fornecedores</option>
+                        <option value="Salários">Salários</option>
+                        <option value="Aluguel">Aluguel</option>
+                        <option value="Outros">Outros</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="descricao">Descrição (opcional):</label>
+                    <input type="text" id="descricao" name="descricao" placeholder="Ex: Venda do dia, Compra de carne">
+                </div>
+
+                <button type="submit" id="add-transaction-btn">Adicionar Transação</button>
+            </form>
+        </section>
+
+        <section id="report-section" class="report-grid">
+            <h2>2. Balanço e Projeção</h2>
+
+            <article id="current-balance" class="card balance-card">
+                <h3>Balanço do Mês Atual</h3>
+                <p class="balance-value" id="current-balance-value">R$ 0,00</p>
+                <p id="balance-status" class="status-text"></p>
+            </article>
+
+            <article id="projection-card" class="card projection-card">
+                <h3>Projeção Média (Próx. Mês)</h3>
+                <p>Média Mensal: <span id="daily-avg-value">R$ 0,00</span></p>
+                <p>Projeção Total: <span id="weekly-projection-value">R$ 0,00</span></p>
+            </article>
+
+            <article id="filters-panel" class="card filters-flex">
+                <h3>Filtros</h3>
+                <button data-filter="Todos" class="filter-btn active">Todos</button>
+                <button data-filter="Receita" class="filter-btn">Receitas</button>
+                <button data-filter="Despesa" class="filter-btn">Despesas</button>
+            </article>
+
+            <article id="transactions-list-card" class="card transactions-list">
+                <h3>Transações Registradas</h3>
+                <ul id="transactions-list">
+                </ul>
+                <p id="no-data-msg">Nenhuma transação registrada ainda.</p>
+            </article>
+        </section>
+
+        </section>
+    </main>
+
+    <footer>
+        <p>© Trabalho Interativo (DOM, Array, Objeto) - Fluxo de Caixa</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
